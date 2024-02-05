@@ -18,31 +18,18 @@ class MyHomePage extends StatelessWidget {
  @override
  Widget build(BuildContext context) {
  return Scaffold(
- appBar: AppBar(title: Text("Recipe List")),
+ appBar: AppBar(title: Text("Recipe")),
  body: ListView(
  shrinkWrap: true,
- padding: const EdgeInsets.fromLTRB(2.0, 10.0, 2.0, 10.0),
+ padding: const EdgeInsets.fromLTRB(5, 10.0, 2.0, 10.0),
  children: <Widget>[
- ProductBox(
+ imageBox(
  name: "recipe",
- description: "recipe",
- 
  image: "img.png"),
  ProductBox(
  name: "recipe",
- description: "recipe",
- 
- image: "img.png"),
- ProductBox(
- name: "recipe",
- description: "recipe",
- 
- image: "img.png"),
- ProductBox(
- name: "recipe",
- description: "recipe",
- 
- image: "img.png")  ,
+ description: "- ingredient 1\n- ingredient2"),
+
 
  ],
  ));
@@ -50,12 +37,12 @@ class MyHomePage extends StatelessWidget {
 }
 
 class ProductBox extends StatelessWidget {
- ProductBox({Key? key,required this.name, required this.description,required this.image})
+ ProductBox({Key? key,required this.name, required this.description})
  : super(key: key);
  final String name;
  final String description;
 
- final String image;
+ 
  Widget build(BuildContext context) {
  return Container(
  padding: EdgeInsets.all(2),
@@ -64,7 +51,7 @@ class ProductBox extends StatelessWidget {
  child: Row(
  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
  children: <Widget>[
- Image.asset("assets/appimages/" + image),
+ 
  Expanded(
  child: Container(
  padding: EdgeInsets.all(5),
@@ -81,3 +68,23 @@ FontWeight.bold)),
  ])));
  }
 }
+class imageBox extends StatelessWidget{
+  imageBox({Key? key,required this.name,required this.image})
+ : super(key: key);
+   final String name;
+
+
+  final String image;
+   Widget build(BuildContext context) {
+ return Container(
+ padding: EdgeInsets.all(2),
+ height: 120,
+ child: Card(
+ child: Row(
+ mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+ children: <Widget>[
+ Image.asset("assets/appimages/" + image),
+ 
+ ])));
+ 
+}}
